@@ -1,12 +1,578 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wealth Empires</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<html><head><title>Business Services Website</title>
-<link rel="stylesheet" href="css/style.css"></head>
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  /* ─── NAVBAR ─── */
+  .navbar {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
+    max-width: 1280px;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    height: 64px;
+    z-index: 1000;
+  }
+
+  /* Brand */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid #e5e5e5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+  .brand-icon svg { width: 20px; height: 20px; }
+  .brand-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.3px;
+  }
+
+  /* Nav links */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    list-style: none;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 16px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: #222;
+    text-decoration: none;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+    white-space: nowrap;
+    border: none;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+  }
+  .nav-link:hover,
+  .nav-item:hover > .nav-link {
+    background: #f3f0ff;
+    color: #5b4fcf;
+  }
+  .nav-link .chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.22s ease;
+    opacity: 0.55;
+  }
+  .nav-item:hover > .nav-link .chevron {
+    transform: rotate(180deg);
+    opacity: 0.9;
+  }
+
+  /* Dropdown */
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.07);
+    padding: 8px 0;
+    min-width: 230px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 2000;
+  }
+  .nav-item:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .dropdown a {
+    display: block;
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+  }
+  .dropdown a:hover {
+    background: #f5f3ff;
+    color: #5b4fcf;
+  }
+
+  /* CTA Buttons */
+  .nav-ctas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .btn-outline {
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111;
+    background: transparent;
+    border: 1.5px solid #d1d1d1;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+  }
+  .btn-outline:hover {
+    border-color: #888;
+    background: #f7f7f7;
+  }
+  .btn-primary {
+    padding: 9px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: #111;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.18s ease, transform 0.12s ease;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary:hover {
+    background: #333;
+  }
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+  .btn-primary .arrow {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  /* Main blank area */
+  .main-content {
+    padding-top: 96px;
+    min-height: 100vh;
+    background: #fff;
+  }
+  .service-section {
+    max-width: 1180px;
+    margin: auto;
+    padding: 48px 24px 80px;
+  }
+  .service-panel {
+    background: #ffffff;
+    border-radius: 36px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 28px 68px rgba(15, 23, 42, 0.08);
+    padding: 36px;
+  }
+  .service-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.5vw, 52px);
+    line-height: 1.05;
+    margin-bottom: 18px;
+    color: #111827;
+  }
+  .service-desc {
+    max-width: 640px;
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .service-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 24px;
+    background: #eef2ff;
+    color: #1d4ed8;
+    font-weight: 600;
+    border: 1px solid #c7d2fe;
+    margin-bottom: 28px;
+  }
+  .service-trust {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .trust-card {
+    background: #f8fafc;
+    border-radius: 18px;
+    padding: 18px 20px;
+    border: 1px solid #e2e8f0;
+  }
+  .trust-card strong {
+    display: block;
+    font-size: 20px;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .trust-card span {
+    font-size: 13px;
+    color: #475569;
+  }
+  .service-form {
+    background: #f8fafc;
+    border-radius: 32px;
+    padding: 28px;
+    border: 1px solid #e2e8f0;
+  }
+  .service-form h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #111827;
+  }
+  .service-form p {
+    color: #475569;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .service-form .form-group {
+    margin-bottom: 16px;
+  }
+  .service-body {
+    margin-top: 36px;
+  }
+  .service-section-title {
+    font-size: 24px;
+    margin-bottom: 18px;
+    color: #111827;
+  }
+  .service-text {
+    color: #475569;
+    line-height: 1.85;
+    max-width: 780px;
+    margin-bottom: 24px;
+  }
+  .check-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #334155;
+    font-size: 15px;
+  }
+  .check-list li::before {
+    content: '✔';
+    color: #2563eb;
+    margin-top: 2px;
+  }
+  .faq-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .faq-card {
+    border-radius: 24px;
+    padding: 22px 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+  }
+  .faq-card h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #111827;
+  }
+  .faq-card p {
+    color: #475569;
+    line-height: 1.75;
+  }
+  .empty-state {
+    max-width: 760px;
+    margin: 140px auto 0;
+    text-align: center;
+    color: #334155;
+  }
+  .empty-state h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .empty-state p {
+    color: #64748b;
+    line-height: 1.8;
+  }
+</style>
+</head>
 <body>
-<nav><h2>Business Services Website</h2></nav>
-<div class="container">
-<div class="card">
-<h1>Welcome</h1>
-<p>Multi-page website starter template.</p>
-</div>
-</div>
-</body></html>
+
+  <nav class="navbar">
+  <!-- Brand -->
+  <a class="brand" href="index.html">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" fill="#5b4fcf" opacity="0.15"/>
+        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#5b4fcf" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 12l2 2 4-4" stroke="#5b4fcf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="brand-name">Wealth Empires</span>
+  </a>
+
+  <!-- Nav Links -->
+  <ul class="nav-links">
+    <li class="nav-item">
+      <button class="nav-link">
+        Startup
+        <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown">
+        <a href="#" onclick="showService('proprietorship','Proprietorship'); return false;">Proprietorship</a>
+        <a href="#" onclick="showService('partnership','Partnership'); return false;">Partnership</a>
+        <a href="#" onclick="showService('one-person-company','One Person Company'); return false;">One Person Company</a>
+        <a href="#" onclick="showService('limited-liability-partnership','Limited Liability Partnership'); return false;">Limited Liability Partnership</a>
+        <a href="#" onclick="showService('private-limited-company','Private Limited Company'); return false;">Private Limited Company</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-link">
+        Registrations
+        <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown">
+        <a href="#" onclick="showService('startup-india','Startup India','Registrations'); return false;">Startup India</a>
+        <a href="#" onclick="showService('fssai-registration','FSSAI Registration','Registrations'); return false;">FSSAI Registration</a>
+        <a href="#" onclick="showService('fssai-licence','FSSAI Licence','Registrations'); return false;">FSSAI Licence</a>
+        <a href="#" onclick="showService('import-export-code','Import Export Code','Registrations'); return false;">Import Export Code</a>
+        <a href="#" onclick="showService('iso-registration','ISO Registration','Registrations'); return false;">ISO Registration</a>
+        <a href="#" onclick="showService('pf-registration','PF Registration','Registrations'); return false;">PF Registration</a>
+        <a href="#" onclick="showService('esi-registration','ESI Registration','Registrations'); return false;">ESI Registration</a>
+        <a href="#" onclick="showService('professional-tax-registration','Professional Tax Registration','Registrations'); return false;">Professional Tax Registration</a>
+        <a href="#" onclick="showService('bis-registration','BIS Registration','Registrations'); return false;">BIS Registration</a>
+        <a href="#" onclick="showService('msme-registration','MSME Registration','Registrations'); return false;">MSME Registration</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-link">
+        Trademark
+        <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown">
+        <a href="#" onclick="showService('trademark-registration','Trademark Registration','Trademark'); return false;">Trademark Registration</a>
+        <a href="#" onclick="showService('trademark-objection','Trademark Objection','Trademark'); return false;">Trademark Objection</a>
+        <a href="#" onclick="showService('trademark-opposition','Trademark Opposition','Trademark'); return false;">Trademark Opposition</a>
+        <a href="#" onclick="showService('trademark-hearing','Trademark Hearing','Trademark'); return false;">Trademark Hearing</a>
+        <a href="#" onclick="showService('trademark-renewal','Trademark Renewal','Trademark'); return false;">Trademark Renewal</a>
+        <a href="#" onclick="showService('logo-designing','Logo Designing','Trademark'); return false;">Logo Designing</a>
+        <a href="#" onclick="showService('copyright-registration','Copyright Registration','Trademark'); return false;">Copyright Registration</a>
+        <a href="#" onclick="showService('copyright-objection','Copyright Objection','Trademark'); return false;">Copyright Objection</a>
+        <a href="#" onclick="showService('patent-registration','Patent Registration','Trademark'); return false;">Patent Registration</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-link">
+        GST
+        <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown">
+        <a href="#" onclick="showService('gst-registration','GST Registration','GST'); return false;">GST Registration</a>
+        <a href="#" onclick="showService('gst-return-filing','GST Return Filing','GST'); return false;">GST Return Filing</a>
+        <a href="#" onclick="showService('gst-notice','GST Notice','GST'); return false;">GST Notice</a>
+        <a href="#" onclick="showService('gst-amendment','GST Amendment','GST'); return false;">GST Amendment</a>
+        <a href="#" onclick="showService('gst-revocation','GST Revocation','GST'); return false;">GST Revocation</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-link">
+        Income Tax
+        <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown">
+        <a href="#" onclick="showService('income-tax-e-filing','Income Tax E-filing','Income Tax'); return false;">Income Tax E-filing</a>
+        <a href="#" onclick="showService('business-tax-filing','Business Tax Filing','Income Tax'); return false;">Business Tax Filing</a>
+        <a href="#" onclick="showService('company-itr-filing','Company ITR Filing','Income Tax'); return false;">Company ITR Filing</a>
+        <a href="#" onclick="showService('tan-registration','TAN Registration','Income Tax'); return false;">TAN Registration</a>
+        <a href="#" onclick="showService('tds-return-filing','TDS Return Filing','Income Tax'); return false;">TDS Return Filing</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <button class="nav-link">
+        MCA
+        <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dropdown">
+        <a href="#" onclick="showService('company-compliance','Company Compliance','MCA'); return false;">Company Compliance</a>
+        <a href="#" onclick="showService('llp-compliance','LLP Compliance','MCA'); return false;">LLP Compliance</a>
+        <a href="#" onclick="showService('opc-compliance','OPC Compliance','MCA'); return false;">OPC Compliance</a>
+        <a href="#" onclick="showService('company-name-change','Company Name Change','MCA'); return false;">Company Name Change</a>
+        <a href="#" onclick="showService('registered-office-change','Registered Office Change','MCA'); return false;">Registered Office Change</a>
+        <a href="#" onclick="showService('din-ekyc-filing','DIN eKYC Filing','MCA'); return false;">DIN eKYC Filing</a>
+        <a href="#" onclick="showService('din-reactivation','DIN Reactivation','MCA'); return false;">DIN Reactivation</a>
+        <a href="#" onclick="showService('director-change','Director Change','MCA'); return false;">Director Change</a>
+        <a href="#" onclick="showService('remove-director','Remove Director','MCA'); return false;">Remove Director</a>
+        <a href="#" onclick="showService('adt-1-filing','ADT-1 Filing','MCA'); return false;">ADT-1 Filing</a>
+        <a href="#" onclick="showService('dpt-3-filing','DPT-3 Filing','MCA'); return false;">DPT-3 Filing</a>
+        <a href="#" onclick="showService('llp-form-11-filing','LLP Form 11 Filing','MCA'); return false;">LLP Form 11 Filing</a>
+        <a href="#" onclick="showService('moa-amendment','MOA Amendment','MCA'); return false;">MOA Amendment</a>
+        <a href="#" onclick="showService('aoa-amendment','AOA Amendment','MCA'); return false;">AOA Amendment</a>
+        <a href="#" onclick="showService('share-transfer','Share Transfer','MCA'); return false;">Share Transfer</a>
+        <a href="#" onclick="showService('winding-up-llp','Winding Up - LLP','MCA'); return false;">Winding Up - LLP</a>
+        <a href="#" onclick="showService('winding-up-company','Winding Up - Company','MCA'); return false;">Winding Up - Company</a>
+        <a href="#" onclick="showService('commencement-inc-20a','Commencement INC-20A','MCA'); return false;">Commencement INC-20A</a>
+      </div>
+    </li>
+
+  </ul>
+
+  <!-- CTA Buttons -->
+  <div class="nav-ctas">
+    <a href="index.html" class="btn-outline">Contact Us</a>
+    <a href="index.html" class="btn-primary">Start Incorporation <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+
+<!-- Service content container -->
+<main class="main-content">
+  <div id="serviceSection" class="service-section">
+    <div class="empty-state">
+      <h2>Select a service from the dropdown above</h2>
+      <p>The content will load directly below the navbar on this page, without opening a separate HTML page.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  function showService(id, label, category) {
+    category = category || 'Startup';
+    const section = document.getElementById('serviceSection');
+    const description = `Register your ${label.toLowerCase()} quickly with expert support, document guidance, and fast processing.`;
+    section.innerHTML = `
+      <section class="service-panel">
+        <div class="service-hero-grid">
+          <div>
+            <span class="eyebrow">Startup • ${label}</span>
+            <h1 class="service-title">${label} Registration in India</h1>
+            <p class="service-desc">${description} Our team handles the paperwork, government filings, and compliance follow-up so you can focus on your business.</p>
+            <div class="service-strip">Start from just <strong>₹1,499</strong> with transparent pricing and fast turnaround.</div>
+            <div class="service-trust">
+              <div class="trust-card"><strong>4.9★</strong><span>Verified reviews</span></div>
+              <div class="trust-card"><strong>15+ yrs</strong><span>Startup experience</span></div>
+              <div class="trust-card"><strong>2L+</strong><span>Customers served</span></div>
+              <div class="trust-card"><strong>Live</strong><span>Application tracking</span></div>
+            </div>
+          </div>
+          <div class="service-form">
+            <h3>Book your ${label}</h3>
+            <p>Fill in your details and our expert will reach out within minutes.</p>
+            <div class="form-group"><input type="text" placeholder="Full Name *"></div>
+            <div class="form-group"><input type="email" placeholder="Email Address *"></div>
+            <div class="form-group"><input type="tel" placeholder="Phone Number *"></div>
+            <div class="form-group">
+              <select>
+                <option selected disabled>Select State *</option>
+                <option>Tamil Nadu</option>
+                <option>Maharashtra</option>
+                <option>Karnataka</option>
+                <option>Delhi</option>
+                <option>Gujarat</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="alert('Request received!')">Continue →</button>
+          </div>
+        </div>
+            <div class="service-body">
+          <h2 class="service-section-title">Why choose ${label} support?</h2>
+          <p class="service-text">We ensure your ${label.toLowerCase()} request is handled with accurate documentation, government compliance, and a transparent process from start to finish.</p>
+          <ul class="check-list">
+            <li>Dedicated ${category.toLowerCase()} expert assigned to you</li>
+            <li>All paperwork completed and reviewed</li>
+            <li>Fast status updates and filing support</li>
+            <li>Post-service guidance for compliance</li>
+          </ul>
+          <div class="faq-grid">
+            <div class="faq-card">
+              <h4>What is ${label}?</h4>
+              <p>${label} is a specialized service designed to help your business comply with the correct regulatory and registration requirements.</p>
+            </div>
+            <div class="faq-card">
+              <h4>How long does it take?</h4>
+              <p>Typically 5 - 10 working days once documents are submitted. We keep the process fast by managing everything end-to-end.</p>
+            </div>
+            <div class="faq-card">
+              <h4>What documents do I need?</h4>
+              <p>Basic ID, address proof, and business details are usually enough. We help you collect the right documents for the chosen service.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

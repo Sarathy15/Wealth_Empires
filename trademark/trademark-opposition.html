@@ -1,17 +1,241 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Trademark Opposition</title>
-<link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trademark Opposition | Wealth Empires</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<nav><h2>Trademark Opposition</h2></nav>
-<div class="container">
-<div class="card">
-<h1>Trademark Opposition</h1>
-<p>This is the Trademark Opposition page.</p>
-<h3>About Trademark Opposition</h3>
-<p>Add your content here.</p>
-</div>
-</div>
+  <nav>
+    <a class="logo" href="../index.html">Wealth<span>Empire</span></a>
+    <ul class="nav-links">
+      <li><span>Startup</span>
+        <div class="dropdown">
+          <a href="../startup/proprietorship.html">Proprietorship</a>
+          <a href="../startup/partnership.html">Partnership</a>
+          <a href="../startup/one-person-company.html">One Person Company</a>
+          <a href="../startup/limited-liability-partnership.html">Limited Liability Partnership</a>
+          <a href="../startup/private-limited-company.html">Private Limited Company</a>
+        </div>
+      </li>
+      <li><span>Registrations</span>
+        <div class="dropdown">
+          <a href="../registrations/startup-india.html">Startup India</a>
+          <a href="../registrations/fssai-registration.html">FSSAI Registration</a>
+          <a href="../registrations/fssai-licence.html">FSSAI Licence</a>
+          <a href="../registrations/import-export-code.html">Import Export Code</a>
+          <a href="../registrations/iso-registration.html">ISO Registration</a>
+          <a href="../registrations/pf-registration.html">PF Registration</a>
+          <a href="../registrations/esi-registration.html">ESI Registration</a>
+          <a href="../registrations/professional-tax-registration.html">Professional Tax Registration</a>
+          <a href="../registrations/bis-registration.html">BIS Registration</a>
+          <a href="../registrations/msme-registration.html">MSME Registration</a>
+        </div>
+      </li>
+      <li><span>Trademark</span>
+        <div class="dropdown">
+          <a href="../trademark/trademark-registration.html">Trademark Registration</a>
+          <a href="../trademark/trademark-objection.html">Trademark Objection</a>
+          <a href="../trademark/trademark-opposition.html">Trademark Opposition</a>
+          <a href="../trademark/trademark-hearing.html">Trademark Hearing</a>
+          <a href="../trademark/trademark-renewal.html">Trademark Renewal</a>
+          <a href="../trademark/logo-designing.html">Logo Designing</a>
+          <a href="../trademark/copyright-registration.html">Copyright Registration</a>
+          <a href="../trademark/copyright-objection.html">Copyright Objection</a>
+          <a href="../trademark/patent-registration.html">Patent Registration</a>
+        </div>
+      </li>
+      <li><span>GST</span>
+        <div class="dropdown">
+          <a href="../gst/gst-registration.html">GST Registration</a>
+          <a href="../gst/gst-return-filing.html">GST Return Filing</a>
+          <a href="../gst/gst-notice.html">GST Notice</a>
+          <a href="../gst/gst-amendment.html">GST Amendment</a>
+          <a href="../gst/gst-revocation.html">GST Revocation</a>
+        </div>
+      </li>
+      <li><span>Income Tax</span>
+        <div class="dropdown">
+          <a href="../income-tax/income-tax-e-filing.html">Income Tax E-filing</a>
+          <a href="../income-tax/business-tax-filing.html">Business Tax Filing</a>
+          <a href="../income-tax/company-itr-filing.html">Company ITR Filing</a>
+          <a href="../income-tax/tan-registration.html">TAN Registration</a>
+          <a href="../income-tax/tds-return-filing.html">TDS Return Filing</a>
+        </div>
+      </li>
+      <li><span>MCA</span>
+        <div class="dropdown">
+          <a href="../mca/company-compliance.html">Company Compliance</a>
+          <a href="../mca/llp-compliance.html">LLP Compliance</a>
+          <a href="../mca/opc-compliance.html">OPC Compliance</a>
+          <a href="../mca/company-name-change.html">Company Name Change</a>
+          <a href="../mca/registered-office-change.html">Registered Office Change</a>
+          <a href="../mca/din-ekyc-filing.html">DIN eKYC Filing</a>
+          <a href="../mca/din-reactivation.html">DIN Reactivation</a>
+          <a href="../mca/director-change.html">Director Change</a>
+          <a href="../mca/remove-director.html">Remove Director</a>
+          <a href="../mca/adt-1-filing.html">ADT-1 Filing</a>
+          <a href="../mca/dpt-3-filing.html">DPT-3 Filing</a>
+          <a href="../mca/llp-form-11-filing.html">LLP Form 11 Filing</a>
+          <a href="../mca/moa-amendment.html">MOA Amendment</a>
+          <a href="../mca/aoa-amendment.html">AOA Amendment</a>
+          <a href="../mca/share-transfer.html">Share Transfer</a>
+          <a href="../mca/winding-up-llp.html">Winding Up - LLP</a>
+          <a href="../mca/winding-up-company.html">Winding Up - Company</a>
+          <a href="../mca/commencement-inc-20a.html">Commencement INC-20A</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <a href="../index.html" class="btn-outline">Home</a>
+      <a href="../index.html" class="btn-gold">Get Started</a>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-section">
+        <div class="mobile-section-title">Trademark</div>
+        <a class="mobile-link" href="../trademark/trademark-registration.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Trademark Registration</a>
+        <a class="mobile-link" href="../trademark/trademark-objection.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Trademark Objection</a>
+        <a class="mobile-link" href="../trademark/trademark-opposition.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Trademark Opposition</a>
+        <a class="mobile-link" href="../trademark/trademark-hearing.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Trademark Hearing</a>
+        <a class="mobile-link" href="../trademark/trademark-renewal.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Trademark Renewal</a>
+        <a class="mobile-link" href="../trademark/logo-designing.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Logo Designing</a>
+        <a class="mobile-link" href="../trademark/copyright-registration.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Copyright Registration</a>
+        <a class="mobile-link" href="../trademark/copyright-objection.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Copyright Objection</a>
+        <a class="mobile-link" href="../trademark/patent-registration.html" onclick="toggleMenu()"><span class="ml-icon">📌</span>Patent Registration</a>
+      </div>
+  </div>
+  <main class="page">
+    <section id="hero">
+      <div class="hero-grid">
+        <div class="hero">
+          <div class="hero-eyebrow">Trademark • Trademark Opposition</div>
+          <h1>Trademark Opposition<br><span>Services</span></h1>
+          <p class="hero-desc">Protect your brand with trademark, copyright, patent, and logo services.</p>
+          <div class="hero-strip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold);flex-shrink:0"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            Start from just <strong>₹1,999</strong>
+          </div>
+          <div class="trust-row">
+            <div class="trust-item"><span class="trust-num">4.8★</span><span class="trust-label">Client Rating</span></div>
+            <div class="trust-item"><span class="trust-num">15+</span><span class="trust-label">Years Experience</span></div>
+            <div class="trust-item"><span class="trust-num">10K+</span><span class="trust-label">Projects Delivered</span></div>
+            <div class="trust-item"><span class="trust-label">24/7 Support</span></div>
+          </div>
+        </div>
+        <div class="form-card">
+          <div class="form-title">Start Trademark Opposition</div>
+          <div class="form-sub">Instant enquiry with expert support</div>
+          <button class="btn-google">Continue with Google</button>
+          <div class="divider">OR</div>
+          <div class="form-group"><input type="text" placeholder="Full Name *"></div>
+          <div class="form-group"><input type="email" placeholder="Email Address *"></div>
+          <div class="form-group"><input type="tel" placeholder="Phone Number *"></div>
+          <div class="form-group">
+            <select>
+              <option selected disabled>Select State *</option>
+              <option>Tamil Nadu</option>
+              <option>Maharashtra</option>
+              <option>Karnataka</option>
+              <option>Delhi</option>
+              <option>Gujarat</option>
+            </select>
+          </div>
+          <button class="btn-continue" onclick="alert('Request received!')">Continue →</button>
+        </div>
+      </div>
+    </section>
+    <section id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Pricing</span>
+          <h2 class="section-title">Legal protection packages for IP and creative assets.</h2>
+          <p class="section-sub">Choose the right plan for your trademark needs.</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="plan-card">
+            <div class="plan-name">Basic</div>
+            <div class="plan-price">₹1,999 <span>/one-time</span></div>
+            <div class="plan-desc">Core Trademark Opposition service</div>
+            <ul class="plan-features"><li>Primary support</li><li>Document guidance</li><li>Application review</li></ul>
+            <button class="btn-outline" onclick="alert('Basic plan selected')">Choose Plan</button>
+          </div>
+          <div class="plan-card featured">
+            <div class="plan-badge">Most Popular</div>
+            <div class="plan-name">Standard</div>
+            <div class="plan-price">₹3,499 <span>/one-time</span></div>
+            <div class="plan-desc">Best value for most businesses</div>
+            <ul class="plan-features"><li>All Basic services</li><li>Faster processing</li><li>Follow-up support</li></ul>
+            <button class="btn-gold" onclick="alert('Standard plan selected')">Choose Plan</button>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Premium</div>
+            <div class="plan-price">₹5,999 <span>/one-time</span></div>
+            <div class="plan-desc">Premium service with priority handling</div>
+            <ul class="plan-features"><li>All Standard services</li><li>Priority handling</li><li>Dedicated support</li></ul>
+            <button class="btn-outline" onclick="alert('Premium plan selected')">Choose Plan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title">Trademark Opposition FAQs</h2>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-header">What does Trademark Opposition include?<span class="faq-arrow">▾</span></div>
+            <div class="faq-body"><div class="faq-body-inner">It includes expert documentation support, filing assistance, and follow-up until approval.</div></div>
+          </div>
+          <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-header">How long does it take?<span class="faq-arrow">▾</span></div>
+            <div class="faq-body"><div class="faq-body-inner">Most services are completed within 5-21 working days depending on the process and approvals.</div></div>
+          </div>
+          <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-header">What documents are required?<span class="faq-arrow">▾</span></div>
+            <div class="faq-body"><div class="faq-body-inner">Requirements vary by service, but typically include identity, address, and business documents.</div></div>
+          </div>
+          <div class="faq-item" onclick="this.classList.toggle('open')">
+            <div class="faq-header">Do I need professional help?<span class="faq-arrow">▾</span></div>
+            <div class="faq-body"><div class="faq-body-inner">Yes. Professional support reduces errors and speeds up approvals for government and corporate filings.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="../index.html">
+          <div class="brand-icon"></div>
+          <span class="brand-name">Wealth Empires</span>
+        </a>
+        <p class="footer-copy">Reliable support for Trademark Opposition and business compliance services.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="../trademark/trademark-opposition.html">Current Service</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../startup/proprietorship.html">Popular Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      var h = document.getElementById('hamburger');
+      var m = document.getElementById('mobileMenu');
+      h.classList.toggle('open');
+      m.classList.toggle('open');
+      document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+    }
+  </script>
 </body>
 </html>
